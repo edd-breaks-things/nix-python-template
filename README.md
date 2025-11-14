@@ -1,6 +1,6 @@
 # Python with Nix Template
 
-[![CI](https://github.com/yourusername/your-repo-name/actions/workflows/ci.yml/badge.svg)](https://github.com/yourusername/your-repo-name/actions/workflows/ci.yml)
+[![CI](https://github.com/edd-breaks-things/nix-python-template/actions/workflows/ci.yml/badge.svg)](https://github.com/edd-breaks-things/nix-python-template/actions/workflows/ci.yml)
 
 A GitHub template repository for Python projects using Nix flakes. This template provides a reproducible development environment with common Python development tools pre-configured.
 
