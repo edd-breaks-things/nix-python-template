@@ -210,7 +210,7 @@ This template includes a complete GitHub Actions workflow (`.github/workflows/ci
 - **Runs on**: Push to main/master branches and pull requests
 - **Tests on**: Ubuntu and macOS
 - **Executes**: Linting, testing, formatting checks, and Docker image building
-- **Uses**: Cachix for faster builds
+- **Uses**: Determinate Systems' magic-nix-cache for faster builds
 - **Produces**: Docker images as downloadable artifacts
 
 The workflow runs three main jobs:

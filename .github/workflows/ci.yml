@@ -20,17 +20,10 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Install Nix
-        uses: cachix/install-nix-action@v24
-        with:
-          extra_nix_config: |
-            experimental-features = nix-command flakes
-            accept-flake-config = true
+        uses: DeterminateSystems/nix-installer-action@main
       
-      - name: Setup Cachix
-        uses: cachix/cachix-action@v14
-        with:
-          name: nix-community
-          skipPush: true
+      - name: Setup magic-nix-cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
       
       - name: Run linter
         run: nix run .#lint
@@ -50,11 +43,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Install Nix
-        uses: cachix/install-nix-action@v24
-        with:
-          extra_nix_config: |
-            experimental-features = nix-command flakes
-            accept-flake-config = true
+        uses: DeterminateSystems/nix-installer-action@main
       
       - name: Check formatting
         run: |
@@ -72,17 +61,10 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Install Nix
-        uses: cachix/install-nix-action@v24
-        with:
-          extra_nix_config: |
-            experimental-features = nix-command flakes
-            accept-flake-config = true
+        uses: DeterminateSystems/nix-installer-action@main
       
-      - name: Setup Cachix
-        uses: cachix/cachix-action@v14
-        with:
-          name: nix-community
-          skipPush: true
+      - name: Setup magic-nix-cache
+        uses: DeterminateSystems/magic-nix-cache-action@main
       
       - name: Build Docker image
         run: |
@@ -96,3 +78,9 @@ jobs:
           path: |
             docker-image.tar.gz
           retention-days: 7
+      
+      - name: Upload Docker image as release asset
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: docker-image.tar.gz
