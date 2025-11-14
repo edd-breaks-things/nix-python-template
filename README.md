@@ -210,7 +210,7 @@ This template includes a complete GitHub Actions workflow (`.github/workflows/ci
 - **Runs on**: Push to main/master branches and pull requests
 - **Tests on**: Ubuntu and macOS
 - **Executes**: Linting, testing, formatting checks, and Docker image building
-- **Uses**: Determinate Systems' magic-nix-cache for faster builds
+- **Uses**: Determinate Systems' Nix installer for reliable setup
 - **Produces**: Docker images as downloadable artifacts
 
 The workflow runs three main jobs:

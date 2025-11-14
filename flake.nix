@@ -85,11 +85,17 @@
             pname = "example-package";
             version = "0.1.0";
             src = ./.;
+            pyproject = true;
+            
+            build-system = with pythonPackages; [
+              setuptools
+              wheel
+            ];
             
             propagatedBuildInputs = with pythonPackages; [
             ];
 
-            checkInputs = with pythonPackages; [
+            nativeCheckInputs = with pythonPackages; [
               pytest
               pytest-cov
               ruff
